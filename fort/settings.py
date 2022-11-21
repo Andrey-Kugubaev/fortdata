@@ -3,6 +3,8 @@ import os
 
 from dotenv import load_dotenv
 
+import fort.apps
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent

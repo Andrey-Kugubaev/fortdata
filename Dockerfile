@@ -3,5 +3,8 @@ RUN mkdir /app
 COPY requirements.txt /app
 RUN pip3 install -r /app/requirements.txt --no-cache-dir
 COPY . /app
+COPY entrypoint /bin
+WORKDIR /bin
+RUN chmod +x entrypoint
 WORKDIR /app
-CMD gunicorn fort.wsgi:application --bind 0.0.0.0:8000
+ENTRYPOINT entrypoint

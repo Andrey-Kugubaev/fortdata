@@ -1,7 +1,11 @@
 import logging
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fort.settings')
+
 
 import time
 import django
@@ -10,12 +14,11 @@ django.setup()
 
 import requests
 import schedule
-from dotenv import load_dotenv
+
 
 import models
 import script_by_bd
 
-load_dotenv()
 
 appid = os.getenv('APPID')
 DATAFILE = os.getenv('DATAFILE')

@@ -52,7 +52,35 @@ _Информация собирается с сайта https://openweathermap.
 - Отсутствие требования о сроках хранения данных о температуре. Необходимо предусмотреть срок и удалять из базы устаревшие данные
 - Библиотека *schedule*. При расширении проекта и увеличении функциональности следует предусмотреть переход на *celery*
 - Сайт, предоставляющий информация о погоде. В бесплатный тариф входит ограниченное количество запросов и предстовляемых данных. _Для решения поставленной задачи данный тариф подходит_
+----
 
 ### Инструкция по запуску
 
--
+1. Создаем .env и заполняем переменные окружения:
+
+`SECRET_KEY='django-insecure-@ntt_vyfv7^l@kp5z3a67w=v5a18+521iasj)*s+1m)_if!$1i'
+DEBUG=False
+APPID=4220499200bfbb2b3debd7d04494d12f
+DATAFILE=E:/Project/Testov/fortdata/data/list.csv
+DATAFILE=/app/data/list.csv
+DJANGO_SETTINGS_MODULE=fort.settings
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+POSTGRES_USER=fordatauser
+POSTGRES_PASSWORD=fordatadb
+DB_HOST=db
+DB_PORT=5432`
+
+
+2. Устанавливаем `Docker`
+
+
+3. Собираем `docker-compose`
+`docker-compose up -d --build`
+
+
+4. Останавливаем и удаляем контейнеры:
+`docker-compose down -v`
+
+----
+_Проблема запуска: проблема видимости импортов и служебных файлов запущенном контейнер_
